@@ -1,0 +1,23 @@
+
+<style>
+  html {
+          background: #007ac0;
+
+          text-align: center;
+}
+
+</style>
+
+<h1>Please enter your credentials to log in!</h1>
+
+<form class="" action="<%= session_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+  <label for="email">Email</label>
+  <input id="email" type="text" name="user[email]">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]">
+
+  <input type="submit" value="Submit">
+</form>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_no_user!
-  
+
   def new
     render :new
   end
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if user.save
       login_user!(user)
-      redirect_to boards_url
+      redirect_to syncs_url
     else
       flash.now[:errors] << user.errors.full_messages
       render :new
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :password, :name)
   end
 end
