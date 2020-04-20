@@ -14,6 +14,7 @@
 <h1>Welcome to the Krello Web Service</h1>
 
 <p>Krello will help you operate your trello board through amazon alexa voice commands. It'll be awesom!</p>
-
-<a href=" <%= new_session_url %>">Log In</a>
-<a href=" <%= new_user_url %>">Sign Up</a>
+<% unless logged_in? %>
+  <a href=" <%= new_session_url %>">Log In</a>
+  <a href=" <%= new_user_url %>">Sign Up</a>
+<% end %>

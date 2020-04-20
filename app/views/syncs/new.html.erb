@@ -1,17 +1,19 @@
-<h1>Hello this menu will help you connect your trello and your amazon alexa accounts.</h1>
+<div>
+	<form id="trello_token_form" name="trello_token_form" action="<%= syncs_url %>" method="POST">
 
-<br>
+     <input type="hidden" name="authenticity_token" value="form_authenticity_token">
 
-<form  action="<%= syncs_url%>" method="post">
+     <label for="trello_token">Trello Token: </label>
+	   <input type="password" name="trello_token" id="trello_token" value="">
 
-  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+     <input id="submit_trello_token" type="submit" value="submit">
+	</form>
+</div>
 
-  <label for="trello_auth">Authorize Trello</label>
-  <input id="trello_auth" type="password" name="sync[trello_auth]">
+<script language="javascript" type="text/javascript">
 
-  <!-- <label for="amazon_alexa_auth">Authorize Amazon Alexa</label>
-  <input id="amazon_alexa_auth" type="password" name="sync[amazon_alexa_auth]"> -->
-
-  <input type="submit" value="sync services">
-
-</form>
+  var token = window.location.hash;
+  token = token.slice(7);
+  document.forms[1].trello_token.value = token;
+  <%# document.forms["trello_token_form"].submit(); %>
+</script>

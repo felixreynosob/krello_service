@@ -27,6 +27,10 @@ class User < ApplicationRecord
     self.session_token
   end
 
+  def is_trello_connected?
+     self.trello_token ? true : false
+  end
+
   private
 
   def ensure_session_token
