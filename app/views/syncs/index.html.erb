@@ -11,5 +11,6 @@
       <input type="submit" value="Revoke">
     </form>
 <% else %>
-  <a href="https://trello.com/1/authorize?return_url=http://localhost:3000/syncs/new&expiration=1day&name=Krello+Service&scope=read,write,account&response_type=token&key=a44bb9a7912d7d9dd893ee8801fa9255">Authorize Trello</a>
+  <%# <a href="https://trello.com/1/authorize?return_url=http://localhost:3000/syncs/new&expiration=1day&name=Krello+Service&scope=read,write,account&response_type=token&key=a44bb9a7912d7d9dd893ee8801fa9255">Authorize Trello</a> %>
+  <a href="https://trello.com/1/authorize?return_url=https://krello-service.herokuapp.com/syncs/new&expiration=1day&name=Krello+Service&scope=read,write,account&response_type=token&key=a44bb9a7912d7d9dd893ee8801fa9255">Authorize Trello</a>
 <% end %>
