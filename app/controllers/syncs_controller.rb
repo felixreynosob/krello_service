@@ -19,7 +19,7 @@ class SyncsController < ApplicationController
   end
 
   def destroy
+    current_user.trello_token = nil
+    current_user.save
   end
-
 end
-# nil
