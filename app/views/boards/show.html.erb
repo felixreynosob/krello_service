@@ -1,0 +1,14 @@
+<h1><%= @board['name'] %></h1>
+<br>
+<% @lists_on_board.each do |list| %>
+  <h2> <%= list['name'] %></h2>
+
+  <% cards = trello_get_cards_from_list(list['id']) %>
+  <ul>
+      <%cards.each do |card| %>
+        <li> <%= card['name'] %></li>
+      <% end %>
+  </ul>
+
+
+<% end %>

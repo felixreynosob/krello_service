@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       render :new
     else
       login_user!(user)
-      redirect_to syncs_url
+      redirect_to boards_url
     end
   end
 

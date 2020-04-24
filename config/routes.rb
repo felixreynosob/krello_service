@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
 
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
 
-  resources :syncs, only: [:index, :new, :create, :destroy]
+  resources :syncs, only: [:new, :create, :destroy]
 
-  resources :boards do
-    resources :lists do
-      resources :cards
+  resources :boards, only: [:show, :index] do
+    resources :lists, only: [:show, :index]  do
+    #   resources :cards
     end
   end
 

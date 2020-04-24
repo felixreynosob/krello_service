@@ -1,6 +1,8 @@
 <h1>Welcome <%= current_user.name %> </h1>
 
 
-<p>Here are all your trello boards</p>
-
-<a href="#"></a>
+<h2>Personal Boards</h2>
+<br>
+<% @trello_personal_boards.each do |board| %>
+  <a href=" <%= board_url(board['id']) %> "><%=board['name']%></a> <br>
+<% end %>

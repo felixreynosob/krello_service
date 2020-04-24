@@ -1,9 +1,4 @@
 class SyncsController < ApplicationController
-
-  def index
-    render :index
-  end
-
   def new
     render :new
   end
@@ -11,10 +6,10 @@ class SyncsController < ApplicationController
   def create
     current_user.trello_token = params[:trello_token]
     if current_user.save
-      render :index
+      return redirect_to boards_url
     else
       flash.now[:errors] = ["Trello Authentication Failed"]
-      render :index
+      redirect_to user_url(current_user)
     end
   end
 

@@ -12,8 +12,10 @@
   <body>
     <nav>
       <%  if current_user %>
+            <a href="<%= user_url(current_user)%> ">Profile</a><br>
+            <a href="<%=boards_url%>">Home</a>
             <form action="<%= session_url %>" method="post">
-              <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <input type="hidden" name="_method" value="DELETE">
               <input type="submit" value="Logout">
             </form>
