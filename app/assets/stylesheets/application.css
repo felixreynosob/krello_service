@@ -103,7 +103,7 @@ nav a img {
   float: left;
   width: 194px;
   height: 96px;
-  background-color: rgb(9, 30, 66, 0.04);
+  background-color: rgba(9, 30, 66, 0.04);
   margin: 15px 15px;
   border-radius: 5px;
   text-decoration: none;
@@ -114,7 +114,7 @@ nav a img {
 
 .create_board_btn:hover,
 .create_board_btn:active {
-  background-color: rgb(9, 30, 66, 0.08);
+  background-color: rgba(9, 30, 66, 0.08);
 }
 
 .board_display {
