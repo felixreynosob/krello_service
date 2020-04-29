@@ -1,14 +1,28 @@
-<h1><%= @board['name'] %></h1>
-<br>
-<% @lists_on_board.each do |list| %>
-  <h2> <%= list['name'] %></h2>
-
-  <% cards = trello_get_cards_from_list(list['id']) %>
-  <ul>
-      <%cards.each do |card| %>
-        <li> <%= card['name'] %></li>
-      <% end %>
-  </ul>
 
 
+
+<% if @board["prefs"]["backgroundImage"] %>
+    <div class="board_display" style="background-image: url(<%=@board["prefs"]["backgroundImage"]%>);">
+<% else %>
+    <div class="board_display" style="background-color: #007ac0;">
 <% end %>
+<section>
+  <h1><%= @board['name'] %></h1>
+</section>
+
+    <div style="width:<%=(@lists_on_board.length * 282)+ 400%>px;height:auto;" >
+      <% @lists_on_board.each do |list| %>
+      <ul class="list">
+        <h2> <%= list['name'] %></h2>
+        <% cards = trello_get_cards_from_list(list['id']) %>
+            <%cards.each do |card| %>
+              <li class="card"> <%= card['name'] %></li>
+            <% end %>
+      </ul>
+      <% end %>
+      <ul class="list">
+        <li class="create_new_list">+ Create new list</li>
+      </ul>
+    </div>
+  </div>
+</div>

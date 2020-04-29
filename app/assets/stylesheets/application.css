@@ -13,3 +13,167 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+    padding: 20px 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 20;
+}
+
+.row {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+nav {
+  height: 40px;
+  background-color: #026AA7;
+  width: 100vw;
+}
+
+nav a:link,
+nav a:visited,
+nav a:hover,
+nav a:active {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+
+}
+
+nav a img {
+  display: inline-block;
+  height: 60%;
+  width: auto;
+  margin: 8px 20px;
+}
+
+.main-nav {
+  float: right;
+  margin: 10px 25px 0px 0px;
+
+}
+
+.row li {
+  list-style-type: none;
+}
+
+.board_btn:link,
+.board_btn:visited {
+  display: inline-block;
+  float: left;
+  width: 194px;
+  height: 96px;
+  background-color: rgb(0, 121, 191);
+  margin: 15px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.board_btn:hover,
+.board_btn:active {
+  background-color: rgb(6, 102, 157);
+}
+
+.create_board_btn:link,
+.create_board_btn:visited {
+  display: inline-block;
+  float: left;
+  width: 194px;
+  height: 96px;
+  background-color: rgb(9, 30, 66, 0.04);
+  margin: 15px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #172B4D;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.create_board_btn:hover,
+.create_board_btn:active {
+  background-color: rgb(9, 30, 66, 0.08);
+}
+
+.board_display {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  background-size: auto 100vw ;
+  /* background-color: yellow; */
+}
+
+/* .lists_wrapper {
+    width: 20000px;
+   overflow-x: auto;
+} */
+
+.list {
+  display: inline-block;
+  float: left;
+  width: 272px;
+  height: auto;
+  background-color: #ebecf0;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+.list:last-child {
+  background-color: purple;
+}
+
+.list h2 {
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 7px;
+}
+
+.card {
+  background-color: #fff;
+  width: 256px;
+  min-height: 32px;
+  list-style-type: none;
+  margin: 10px;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-left: 7px;
+}
+
+.create_new_list {
+  width: 256px;
+  height: 60px;
+  margin: 10px;
+  padding: 10px 0px 0px 10px;
+  background-color: green;
+  list-style-type: none;
+}
+
+.board_display h1 {
+  margin-left: 3%;
+  color: white;
+}

@@ -1,8 +1,21 @@
-<h1>Welcome <%= current_user.name %> </h1>
-
-
-<h2>Personal Boards</h2>
-<br>
-<% @trello_personal_boards.each do |board| %>
-  <a href=" <%= board_url(board['id']) %> "><%=board['name']%></a> <br>
-<% end %>
+<section>
+  <h1 class="row">Welcome <%= current_user.name %> </h1>
+</section>
+<section>
+  <h2 class="row">Personal Boards</h2>
+</section>
+<section>
+  <ul class="row">
+    <% @trello_personal_boards.each do |board| %>
+      <% next if board['closed'] %>
+      <li>
+        <a class="board_btn" href=" <%= board_url(board['id']) %> ">
+          <%=board['name']%>
+        </a>
+      </li>
+    <% end %>
+    <li>
+      <a class="create_board_btn" href="#">Create new board</a>
+    </li>
+  </ul>
+</section>
