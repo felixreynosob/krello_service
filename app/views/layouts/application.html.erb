@@ -13,7 +13,7 @@
   <body>
     <nav>
       <%  if current_user %>
-            <a href="<%=boards_url%>"><img src="<%= asset_path('home-btn.svg') %>" alt='home'></a></a>
+            <a href="<%=boards_url%>"><img src="<%= asset_path('icon.svg') %>" alt='home'></a></a>
             <a class="main-nav"  href="<%= user_url(current_user)%> ">Profile</a>
             <form class="main-nav" action="<%= session_url %>" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">

@@ -6,6 +6,7 @@ class BoardsController < ApplicationController
   def index
     return (redirect_to user_url(current_user)) unless current_user.is_trello_connected?
     @trello_personal_boards = trello_personal_boards
+    @key = API_KEY
     render :index
   end
 
@@ -14,6 +15,12 @@ class BoardsController < ApplicationController
     @board = trello_get_board(params[:id])
     @lists_on_board = trello_get_lists_from_board(params[:id])
     render :show
+  end
+
+  def create
+    r = RestClient.post("https://api.trello.com/1/boards",
+      {key: API_KEY, token: current_user.trello_token, name: params[:name]})
+    return redirect_to boards_url
   end
 
   private

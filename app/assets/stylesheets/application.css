@@ -19,6 +19,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 section {
     padding: 20px 0;
 }
@@ -26,13 +30,14 @@ section {
 h1,
 h2,
 h3 {
-    font-weight: 300;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 h1 {
   font-size: 30px;
+
 }
 
 h2 {
@@ -97,24 +102,20 @@ nav a img {
   background-color: rgb(6, 102, 157);
 }
 
-.create_board_btn:link,
-.create_board_btn:visited {
+.create_board_btn  {
   display: inline-block;
   float: left;
   width: 194px;
   height: 96px;
+  cursor: pointer;
   background-color: rgba(9, 30, 66, 0.04);
   margin: 15px 15px;
   border-radius: 5px;
   text-decoration: none;
   color: #172B4D;
   text-align: center;
-  padding-top: 40px;
-}
-
-.create_board_btn:hover,
-.create_board_btn:active {
-  background-color: rgba(9, 30, 66, 0.08);
+  padding-top: 10px;
+  font-size: 16px;
 }
 
 .board_display {
@@ -123,13 +124,8 @@ nav a img {
   height: 100vh;
   overflow-x: auto;
   background-size: auto 100vw ;
-  /* background-color: yellow; */
 }
 
-/* .lists_wrapper {
-    width: 20000px;
-   overflow-x: auto;
-} */
 
 .list {
   display: inline-block;
@@ -141,9 +137,35 @@ nav a img {
   border-radius: 4px;
 }
 
-.list:last-child {
-  background-color: purple;
+/* .list:last-child {
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.24);
 }
+
+.list:last-child:hover,
+.list:last-child:active {
+  background-color: rgba(255, 255, 255, 0.35);
+} */
+
+.list:last-child li {
+  list-style-type: none;
+}
+
+.list:last-child li button
+ {
+  display: inline-block;
+  border: 0px;
+  font-size: 14px;
+  height: 40px;
+  width: 272px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+.list:last-child li button:hover {
+  background-color: rgb(201, 201, 201);
+}
+
 
 .list h2 {
   font-weight: bold;
@@ -153,27 +175,158 @@ nav a img {
   padding-bottom: 7px;
 }
 
-.card {
+.card{
+  display: inline-block;
   background-color: #fff;
   width: 256px;
   min-height: 32px;
   list-style-type: none;
   margin: 10px;
   border-radius: 4px;
-  padding-top: 5px;
-  padding-left: 7px;
+  padding: 5px 5px 5px 7px;
+  box-shadow: 0px 1px #747474;
 }
 
-.create_new_list {
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.card li a:link,
+.card li a:visited,
+.card li a:active,
+.card li a:hover {
+  display:inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: #172B4D;
+  font-size: 16px;
+}
+
+.card:last-child  {
+  background-color: rgba(255,255,255,0.0);
+  box-shadow: 0px 0px;
+}
+
+.card:last-child button  {
+  background-color: rgba(255,255,255,0.0);
+  border: 0px;
+  font-size: 14px;
+}
+
+.create_new_list_btn {
   width: 256px;
-  height: 60px;
   margin: 10px;
-  padding: 10px 0px 0px 10px;
-  background-color: green;
+  padding: 4px 0px 10px 4px;
   list-style-type: none;
+  color: #fff;
 }
 
 .board_display h1 {
   margin-left: 3%;
   color: white;
+}
+
+.screen_overlay {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.form_popup {
+  display: none;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: #172b4d;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.newBoard {
+  padding: 10px;
+  color: white;
+}
+
+.newList {
+  padding: 10px;
+  color: white;
+}
+
+.newBoard h3 {
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.newList h3{
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.btn_cancel {
+  display: block;
+  float: right;
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px;
+}
+
+.btn_cancel img{
+  height: 20px;
+  width: auto;
+}
+
+input::placeholder {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.text_field {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-radius: 4px;
+  border: 0px;
+  color: white;
+  font-weight: bold;
+  height: 20px;
+  font-size: 15px;
+  padding-left: 5px;
+}
+
+.newBoard input:last-of-type {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 104px;
+  height: 32px;
+  margin-top: 10px;
+  background-color: #F4F5F7;
+  border: 0px;
+  border-radius: 5px;
+  color: #A5ADBA;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.newList input:last-of-type {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 104px;
+  height: 32px;
+  margin-top: 10px;
+  background-color: #F4F5F7;
+  border: 0px;
+  border-radius: 5px;
+  color: #A5ADBA;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }

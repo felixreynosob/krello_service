@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :syncs, only: [:new, :create, :destroy]
 
-  resources :boards, only: [:show, :index] do
-    resources :lists, only: [:show, :index]  do
+  resources :boards, only: [:show, :index, :create] do
+    resources :lists, only: [:show, :index, :create]  do
     #   resources :cards
     end
   end

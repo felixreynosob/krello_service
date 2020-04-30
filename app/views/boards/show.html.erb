@@ -1,10 +1,9 @@
 
 
-
 <% if @board["prefs"]["backgroundImage"] %>
     <div class="board_display" style="background-image: url(<%=@board["prefs"]["backgroundImage"]%>);">
 <% else %>
-    <div class="board_display" style="background-color: #007ac0;">
+    <div class="board_display" style="background-color: #172b4d;">
 <% end %>
 <section>
   <h1><%= @board['name'] %></h1>
@@ -15,14 +14,48 @@
       <ul class="list">
         <h2> <%= list['name'] %></h2>
         <% cards = trello_get_cards_from_list(list['id']) %>
-            <%cards.each do |card| %>
-              <li class="card"> <%= card['name'] %></li>
-            <% end %>
+        <%cards.each do |card| %>
+          <div class="card">
+            <li><a href="#"><%= card['name'] %></a></li>
+          </div>
+        <% end %>
+        <div class="card">
+          <li><button class="create_card_btn" type="button" onclick="cardCreationForm()">+ Add another card</button></li>
+        </div>
       </ul>
       <% end %>
       <ul class="list">
-        <li class="create_new_list">+ Create new list</li>
+          <li><button class="create_list_btn" type="button" onclick="listCreationForm()">+ Add another list</button></li>
       </ul>
     </div>
   </div>
 </div>
+<div class="screen_overlay" id="screen_overlay">
+</div>
+<div class="row">
+  <div class="form_popup" id="form_popup">
+    <form class="newList" action="<%=board_lists_url(@board['id'])%>" method="post">
+      <h3>List</h3>
+      <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+      <button type="button" class="btn_cancel" onclick="closeForm()"><img src="<%= asset_path('close_btn.svg') %>" alt=""></button>
+      <br>
+      <input class="text_field"  type="text" id="list_name" name="name" placeholder="Type the list name">
+      <br>
+      <input type="submit" value="add list">
+    </form>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  function listCreationForm() {
+    document.getElementById('screen_overlay').style.display = 'block';
+    document.getElementById("form_popup").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById('screen_overlay').style.display = 'none';
+    document.getElementById("form_popup").style.display = "none";
+  }
+</script>

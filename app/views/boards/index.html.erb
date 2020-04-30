@@ -1,3 +1,5 @@
+<div class="screen_overlay" id="screen_overlay">
+</div>
 <section>
   <h1 class="row">Welcome <%= current_user.name %> </h1>
 </section>
@@ -15,7 +17,33 @@
       </li>
     <% end %>
     <li>
-      <a class="create_board_btn" href="#">Create new board</a>
+        <button class="create_board_btn" type="button" onclick="boardCreationForm()">Create new board </button>
     </li>
   </ul>
 </section>
+
+<div class="row">
+  <div class="form_popup" id="form_popup">
+    <form class="newBoard" action="<%=boards_url%>" method="post">
+      <h3>Form</h3>
+      <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+      <button type="button" class="btn_cancel" onclick="closeForm()"><img src="<%= asset_path('close_btn.svg') %>" alt=""></button>
+      <br>
+      <input class="text_field"  type="text" id="board_name" name="name" placeholder="Type the board name">
+      <br>
+      <input type="submit" value="create">
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function boardCreationForm() {
+    document.getElementById('screen_overlay').style.display = 'block';
+    document.getElementById("form_popup").style.display = "block";
+  }
+
+  function closeForm() {
+    document.getElementById('screen_overlay').style.display = 'none';
+    document.getElementById("form_popup").style.display = "none";
+  }
+</script>
